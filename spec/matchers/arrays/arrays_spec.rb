@@ -1,7 +1,11 @@
+RSpec::Matchers.define_negated_matcher :exclude, :include
+
 describe Array.new([1,2,3]), 'Array' do
   it '#include' do # Elementos separados do Array
     is_expected.to include(3,1,2)
   end
+  
+  it { is_expected.to exclude(4) }
   
   it '#contain_exactly' do # Contém exatamente os elementos
     is_expected.to contain_exactly(3, 2, 1)
